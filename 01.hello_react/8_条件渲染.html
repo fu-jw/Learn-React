@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn React</title>
+</head>
+<body>
+  
+  <div id="root"></div>
+
+  <script src="./lib/react.js"></script>
+  <script src="./lib/react_dom.js"></script>
+  <script src="./lib/babel.js"></script>
+
+  <script type="text/babel">
+    // 1.定义根组件
+    class App extends React.Component {
+      constructor() {
+        super()
+        this.state = {
+          message: "Hello World",
+          grades:"80",
+          isReady: true,
+          friend: {name:"fredo",age:18},// undefined,null,false 默认不显示
+        }
+      }
+
+      render() {
+        const { message } = this.state
+        const {grades} = this.state
+        const {isReady} = this.state
+        const {friend} = this.state
+
+        // 条件判断方式一: 使用if进行条件判断
+        let grade = null
+        if (grades>=90) {
+          grade = <h2>优秀</h2>
+        }else if(grades>=80){
+          grade = <h2>良好</h2>
+        }else if(grades>=60){
+          grade = <h2>及格</h2>
+        }else{
+          grade = <h2>不及格</h2>
+        }
+
+        return (
+          
+          <div>
+            {/* 条件判断方式一: 使用if-else进行条件判断 */}
+            <h2>分数：{grades}</h2>
+            {grade}
+            <br/>
+
+            {/* 条件判断方式二: 使用三元表达式进行简单条件判断 */}
+            <div>{ isReady ? <button>开始战斗!</button>: <h3>请准备好！</h3> }</div>
+            <br/>
+
+            {/* 条件判断方式三: 使用 && 进行条件判断 */}
+            {/* 场景: 当某一个值, 有可能为 undefined 时, 使用 && 进行条件判断 */}
+            <div>{ friend && <div>{friend.name + " " + friend.age}</div> }</div>
+
+            {/* v-show的效果 */}
+            <h2 style={{display: isReady ? 'block': 'none'}}>哈哈哈哈</h2>
+          </div>
+        )
+      }
+      
+    }
+
+    // 2.渲染根组件
+    const root = ReactDOM.createRoot(document.querySelector("#root"))
+    root.render(<App/>)
+  </script>
+
+</body>
+</html>
