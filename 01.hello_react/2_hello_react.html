@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello React!</title>
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <!-- 0. 添加 React 的依赖 -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <!-- Don't use this in production: -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    // 1.定义根组件(名称必须大写，小写会被认为html元素)
+    class App extends React.Component {
+      // 1.1 组件中的数据
+      constructor() {
+        // 固定写法，必须第一行继承父类的super()
+        super()
+        // 固定写法，必须是state
+        this.state = {
+          message: "Hello World"
+        }
+      }
+      // 1.2 组件中的方法
+      // setState 来自于继承的 React.Component
+      // 并且自动调用 render 方法, 重新渲染组件
+      changeText() {
+        this.setState({ message: "Hello React" })
+      }
+      // 1.3 渲染方法(方法名固定)
+      // 不能写成: this.changeText
+      // 因为 Bable 在进行代码转换时,并没有进行绑定
+      // 导致调用的方法中的 this 是 undefined
+      // bind(this) 将 render 中的 this 绑定给方法, 使得方法中的 this 指向组件实例对象
+      render() {
+        return (
+          <div>
+            <h2>{this.state.message}</h2>
+            <button onClick={this.changeText.bind(this)}>修改文本</button>
+          </div>
+        )
+      }
+
+    }
+
+    // 2.渲染根组件
+    const root = ReactDOM.createRoot(document.querySelector("#root"))
+    root.render(<App />)
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello React!</title>
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <!-- 0. 添加 React 的依赖 -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <!-- Don't use this in production: -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    // 1. 定义变量
+    let message = "Hello, World!";
+
+    // 2. 定义方法
+    const btnClick = () => {
+      message = "Hello, React!";
+      rootRender()
+    }
+
+    // 3. 渲染
+    const root = ReactDOM.createRoot(document.querySelector("#root"))
+    rootRender()
+
+    function rootRender() {
+      root.render((
+        <div>
+          <h2>{message}</h2>
+          <button onClick={btnClick}>修改文本</button>
+        </div>
+      ));
+    }
+
+  </script>
+
+</body>
+
+</html>
