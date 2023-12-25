@@ -1,5 +1,6 @@
 import React from "react"
 import HelloWorld from "./Components/HellWorld"
+import HelloReact from "./Components/HelloReact"
 
 // 编写一个组件
 class App extends React.Component {
@@ -17,6 +18,7 @@ class App extends React.Component {
       <div>
         <h2>{message}</h2>
         <HelloWorld/>
+        <HelloReact/>
       </div>
     )
   }
