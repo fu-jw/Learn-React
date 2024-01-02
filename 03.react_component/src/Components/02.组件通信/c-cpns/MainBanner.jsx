@@ -4,7 +4,6 @@ export class MainBanner extends Component {
   // 参数：props,接收父组件传递过来的数据
   constructor(props){
     super(props)
-
     this.state={}
   }
 

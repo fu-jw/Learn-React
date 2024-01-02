@@ -7,6 +7,7 @@ export class Main extends Component {
     super()
 
     this.state = {
+      // 父组件数据
       banners: ["aaa", "bbb", "ccc"],
       productList: ["A", "B", "C"]
     }
