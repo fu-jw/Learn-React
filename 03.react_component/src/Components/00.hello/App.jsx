@@ -1,6 +1,6 @@
 import React from "react"
-import HelloWorld from "./Components/00.hello/HellWorld"
-import HelloReact from "./Components/00.hello/HelloReact"
+import HelloWorld from "./HellWorld"
+import HelloReact from "./HelloReact"
 
 // 编写一个组件
 class App extends React.Component {
