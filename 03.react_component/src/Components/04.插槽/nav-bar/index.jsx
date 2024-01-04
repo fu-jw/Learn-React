@@ -3,7 +3,7 @@ import "./style.css"
 
 export class NavBar extends Component {
   render() {
-    // 2.取出children中的内容
+    // 取出children中的内容
     const { children } = this.props
     console.log(children)
 
