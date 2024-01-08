@@ -24,13 +24,23 @@ export class App extends Component {
   }
 
   changeText() {
+    // 异步操作
+    // this.setState({ message: "Hello React" })
+    // console.log(this.state.message)//打印：Hello World
+
+    // setTimeout 是宏任务，由浏览器控制
     setTimeout(() => {
       // 在react18之前, setTimeout中setState操作, 是同步操作
       // 在react18之后, setTimeout中setState异步操作(批处理)
+      // this.setState({ message: "Hello React" })
+      // console.log(this.state.message)// 18之前打印：Hello React 18之后打印：Hello World
+
+      // 18之后希望同步更新之后再执行后面的代码，可以使用flushSync
       flushSync(() => {
-        this.setState({ message: "hello react" })
+        // 所有需要同步更新的代码
+        this.setState({ message: "Hello React" })
       })
-      console.log(this.state.message)
+      console.log(this.state.message)// 打印：Hello React
     }, 0);
   }
 
