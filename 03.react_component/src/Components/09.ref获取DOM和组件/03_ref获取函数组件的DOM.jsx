@@ -5,7 +5,7 @@ const HelloWorld = forwardRef(function(props, ref) {
   return (
     <div>
       <h1 ref={ref}>Hello World</h1>
-      <p>哈哈哈</p>
+      <p>函数式组件</p>
     </div>
   )
 })
