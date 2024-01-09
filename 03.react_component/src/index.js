@@ -9,7 +9,8 @@ import ReactDOM from "react-dom/client"
 // import App from "./Components/06.setState/App"
 // import App from "./Components/07.render/App"
 // import App from "./Components/08.数据不可变的力量/App"
-import App from "./Components/09.ref获取DOM和组件/App"
+// import App from "./Components/09.ref获取DOM和组件/App"
+import App from "./Components/10.受控组件和非受控组件/App"
 
 // 编写React代码, 并且通过React渲染出来对应的内容
 const root = ReactDOM.createRoot(document.querySelector("#root"))
